@@ -6,3 +6,6 @@ fastapi
 sqlmodel
 streamlit
 uvicorn
+pydantic
+pydantic_settings
+sqlalchemy
