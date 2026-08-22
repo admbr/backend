@@ -1,11 +1,11 @@
 from typing import Optional
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 
 
 class MoradorBase(SQLModel):
     nome: str = Field()
     apelido: Optional[str] = None
-    id_apartamento: int
+    id_apartamento: int = Field(foreign_key="apartamentos.id")
     cpf: str = Field(unique=True, index=True)
     turma: str
     celular: Optional[str]
@@ -21,5 +21,7 @@ class MoradorCreate(MoradorBase):
     senha: Optional[str]
 
 
-class Morador(MoradorBase, table=True):
+class Moradores(MoradorBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
+
+    owner: Optional["Apartamentos"] = Relationship(back_populates="moradores")  # type: ignore

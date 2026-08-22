@@ -7,5 +7,7 @@ sqlmodel
 streamlit
 uvicorn
 pydantic
-pydantic_settings
+pydantic-settings
 sqlalchemy
+python-dotenv
+asyncpg

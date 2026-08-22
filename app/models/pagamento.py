@@ -28,5 +28,5 @@ class PagamentoCreate(PagamentoBase):
     pass
 
 
-class Pagamento(PagamentoBase, table=True):
+class Pagamentos_asaas(PagamentoBase, table=True):
     id: Optional[str] = Field(default=None, primary_key=True)

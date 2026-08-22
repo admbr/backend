@@ -1,5 +1,5 @@
 from typing import Optional
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 
 
 class ApartamentoBase(SQLModel):
@@ -15,5 +15,7 @@ class ApartamentoCreate(ApartamentoBase):
     pass
 
 
-class Apartamento(ApartamentoBase, table=True):
+class Apartamentos(ApartamentoBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
+
+    moradores: list["Moradores"] = Relationship(back_populates="owner")  # type: ignore

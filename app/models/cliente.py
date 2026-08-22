@@ -22,5 +22,5 @@ class ClienteCreate(ClienteBase):
     pass
 
 
-class Cliente(ClienteBase, table=True):
+class Clientes(ClienteBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
